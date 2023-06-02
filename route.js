@@ -30,7 +30,7 @@ router.post("/", (req, res) => {
         }
 
         // Replace the <p id="result"></p> with the result
-        index_html = index_html.replace('<p id="result"></p>', `<p id="result">Result: for age(${req.body.age} years), height(${req.body.height} cm) and weight(${req.body.weight} kgs) - bmi category is ${result}.</p>`);
+        index_html = index_html.replace('<p id="result"></p>', `<p id="result">Result: for age(${req.body.age} years), height(${req.body.height} cm) and weight(${req.body.weight} kgs) - bmi category is ${result}(${bmi.toFixed(2)}).</p>`);
     }
 
     res.send(index_html);
@@ -51,3 +51,5 @@ function validate(params) {
 
     return true;
 }
+
+module.exports = router;
