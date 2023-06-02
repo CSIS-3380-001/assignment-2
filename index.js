@@ -12,7 +12,7 @@ let _PORT = 3000;
 app.use(morgan(':method :url :status :response-time ms'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static('public'))
+app.use(express.static('docs'))
 
 // Routes
 app.use("/", router);
