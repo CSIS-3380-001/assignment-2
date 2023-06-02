@@ -1,4 +1,3 @@
-module.exports = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +14,7 @@ module.exports = `
 <body>
     <div class="header">
         <div class="wrapper">
-          <form method="post" action="/">
+          <form id="form">
             <h1>BMI calculator</h1>
             <p>Insert Your Age</p>
             <input type="text" id="age" name="age" value="">
@@ -30,7 +29,8 @@ module.exports = `
           </form>
         </div>
     </div>
- 
+    
+    <script src="bmi.js"></script>
 </body>
 
-</html>`;
+</html>

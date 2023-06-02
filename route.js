@@ -1,39 +1,34 @@
 let router = require("express").Router();
 
 // Routes
-router.get("/", (req, res) => {
-    res.send(require("./templates/index_html.js"));
-});
-
 router.post("/", (req, res) => {
-    
-    let index_html = require("./templates/index_html.js");
 
     if(!validate(req.body)) {
-        result = "Error in input";
-        index_html = index_html.replace('<p id="result"></p>', `<p id="result">Result: ${result}</p>`);
-    } else {
-
-        // Calculate BMI
-        // BMI = weight (kg) ÷ height^2 (m^2)
-        let heightInMeters = req.body.height / 100;
-        let bmi = req.body.weight / (heightInMeters * heightInMeters);
-
-
-        // BMI Categories:
-        if (bmi < 18.6) {
-            result = `Under Weight`;
-        } else if (bmi >= 18.6 && bmi < 24.9) {
-            result = `Normal`;
-        } else {
-            result = `Over Weight`;
-        }
-
-        // Replace the <p id="result"></p> with the result
-        index_html = index_html.replace('<p id="result"></p>', `<p id="result">Result: for age(${req.body.age} years), height(${req.body.height} cm) and weight(${req.body.weight} kgs) - bmi category is ${result}(${bmi.toFixed(2)}).</p>`);
+        res.status(400).send({
+            error: "Invalid input"
+        });
+        return;
     }
 
-    res.send(index_html);
+    // Calculate BMI
+    // BMI = weight (kg) ÷ height^2 (m^2)
+    let heightInMeters = req.body.height / 100;
+    let bmi = req.body.weight / (heightInMeters * heightInMeters);
+
+
+    // BMI Categories:
+    if (bmi < 18.6) {
+        result = `Under Weight`;
+    } else if (bmi >= 18.6 && bmi < 24.9) {
+        result = `Normal`;
+    } else {
+        result = `Over Weight`;
+    }
+
+    res.send({
+        bmi: bmi,
+        result: result
+    });
 });
 
 function validate(params) {

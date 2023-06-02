@@ -11,6 +11,7 @@ let _PORT = 3000;
 // Middlewares
 app.use(morgan(':method :url :status :response-time ms'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(express.static('public'))
 
 // Routes

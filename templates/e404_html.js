@@ -7,7 +7,7 @@ module.exports = `
 </head>
 
 <body>
-    <h2>404</h2>
+    <h2>Invalid Path - 404</h2>
 
 </body>
 
