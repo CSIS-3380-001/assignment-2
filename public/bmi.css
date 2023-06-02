@@ -50,12 +50,12 @@ button{
   margin-top: 1.6rem;
   position: relative; 
   /* overflow: hidden; */
-  transition: all 0.8s;
+  /* transition: all 0.8s;
   transform: perspective(1px);
   perspective: 10px;
-  perspective-origin: center;
+  perspective-origin: center; */
 }
-
+/* 
 button:hover{
   background: #00b248;
   color: white;
@@ -75,7 +75,7 @@ button::before{
   left: 0;
   right: 0;
   border-radius: 40%;
-  /* z-index: -1; */
+  z-index: -1;
   background: white;
   opacity: 0;
   transform: scale(0);
@@ -89,4 +89,4 @@ button:focus::before{
 
 h3{
   margin-top:15em;
-}
+} */
